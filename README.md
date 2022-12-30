@@ -28,26 +28,12 @@ https://www.youtube.com/watch?v=99pYGpTWcXM&t=926s
 
 https://www.youtube.com/watch?v=YPbgjPPC1d0&t=3491s
 
-## 二、网页资料
-
- ### （一）solidity by example
+ ### （四）solidity by example
 
 用极简的风格解释了solidity语言的使用方式。
 
 https://solidity-by-example.org/
 
-## 四、自我总结
+## 四、个人总结
 
-所有下面的文章均可以在Github根目录下的`doc`文件夹中找到，也可以直接关注微信公众号。
-
-<img src="https://muzhi-picgo.oss-cn-beijing.aliyuncs.com/img/qrcode_for_gh_d9957812ae39_258%20(1).jpg"/>
-
-### （一）面试题目
-
-首先，已经确定有49道与WEB3相关的面试题目，并不是说只收集49道，而是从数以百计的庞杂题目库中提炼出最经典的题目来供读者品悦。
-
-然后，目前来说数量上可能还不达标，后续会积极更新，不断优化这49道面试题目。
-
-### （二）技术文章
-
-**(1)针对《有關香港虛擬資產發展的政策宣言》的一点个人见解**
+详见项目根目录下的文章。
