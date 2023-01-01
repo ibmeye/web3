@@ -1,5 +1,5 @@
-const HelloBlockchain = artifacts.require("HelloBlockchain");
+const TarotCard = artifacts.require("TarotCard");
 
 module.exports = function (deployer) {
-  deployer.deploy(HelloBlockchain, "Hello Blockchain");
+  deployer.deploy(TarotCard);
 };

@@ -1,3 +1,7 @@
+相关代码已经推送到我的github项目中，在code目录下的同名子目录中，结合代码来阅读文章，更加容易理解。
+
+https://github.com/ibmeye/web3
+
 ### （一）NFT理论部分
 
 **(1)同质化代币和非同质化代币的区别**
@@ -83,7 +87,7 @@ contract TarotCard  is ERC721 {
 
 到目前为止，我们已经创建好了一个`NFT`合约，合约的名称为`Tarot`，合约的代币为`TAROT`。在该`NFT`合约的基础上，我们可以编写业务代码来构建领域相关的`NFT`合约。
 
-### 创建NFT项目
+### （四）创建NFT项目的合约部分
 
 哔哩哔哩·卡罗牌项目
 
@@ -95,13 +99,13 @@ contract TarotCard  is ERC721 {
 
 ![image-20211225145838742](https://muzhi-picgo.oss-cn-beijing.aliyuncs.com/img/c1c60cad85a05827e059334aba81fe8a.png)
 
-#### 项目合约
+**(1)项目合约**
 
 > 关于`ERC-721`的通用实现是如何工作的，可以参考第6章，剖析`ERC-721`的通用实现。
 
 任何一个合约中的代币都有三个生命阶段，下面分别编写这三个阶段的代码。
 
-- 阶段1：铸币，为了测试方便，合约中的铸币接口直接将所有收藏品先发给第一个调用该合约函数的账户。
+1. 铸币，为了测试方便，合约中的铸币接口直接将所有收藏品先发给第一个调用该合约函数的账户。
 
 ```solidity
 ...
@@ -130,6 +134,8 @@ truffle create test TarotCard
 ![image-20211225143355319](https://muzhi-picgo.oss-cn-beijing.aliyuncs.com/img/a41e952108ed6067a4432b99274a1f35.png)
 
 下面是测试文件的基础内容，该内容可以用来测试`TarotCard`合约是否正常发布。
+
+注意配置migrations，以及启动参数要配置为可以输入的内容。
 
 ```javascript
 const TarotCard = artifacts.require("TarotCard");
@@ -162,7 +168,7 @@ contract("TarotCard", function (/* accounts */) {
 });
 ```
 
-- 阶段2：流通
+2. 转账
 
 流通简单来说就是转让收藏品。
 
@@ -190,7 +196,7 @@ contract("TarotCard", function (/* accounts */) {
 	}
 ```
 
-- 阶段3：销毁
+3. 销毁
 
 销毁，很简单，永久的将收藏删除。
 
@@ -219,7 +225,13 @@ contract("TarotCard", function (/* accounts */) {
 	}
 ```
 
-#### 项目界面
+### （五）创建NFT项目的界面部分
+
+首先给项目安装`element-ui for vue3`，使用下面的指令：
+
+```shell
+npm install element-plus --save
+```
 
 为了方便演示，我们将上述三个阶段的按钮全部放在了用户操作页面上，分别为铸币，转让(流通)和销毁。
 
@@ -252,23 +264,3 @@ contract("TarotCard", function (/* accounts */) {
 #### 项目总结
 
 项目继承了ERC721的实现合约，在其基础上增加了我们本身的铸币，转账和销毁合约，非常方便的实现了NFT的一个应用程序。NFT作为区块链的落地方式，其核心的价值就是，虚拟资产一旦被转移后，归属权就会本质变更，而不需要任何人证明。
-
-#### 补充
-
-1. 合约编译的时候指定合约生成目录
-
-在部署合约的时候，生成的内容`*.json`文件会放到一个目录中，这个目录的位置可以指定，指定的目的是，让别人引用你这些生成的文件的时候，不会因为你每次部署的内容不同，人家项目启动后，引用的东西是你上次部署的内容。
-
-咱们举个例子，比如说，你首次部署的时候，放在了文件build中，然后别人把你build文件夹中的东西拷贝出来，放到他们的目录中来使用，当你再次部署的时候，你最新生成的确实还在build中，但是别人的目录中的那份文件就是陈旧的了，不能使用了。所以，我们要直接把生成的文件的位置放到别人需要的目录中去，这样你部署一次，就可以把最新的直接给到别人。
-
-想要实现上面这个目标，该怎么做呢，其实就是配置`truffle.config`中的内容就可以了。
-
-https://trufflesuite.com/docs/truffle/reference/configuration.html#contracts_build_directory
-
-![image-20211229191500467](https://muzhi-picgo.oss-cn-beijing.aliyuncs.com/img/61a77820e0dffeafef89bd1431855aaf.png)
-
-2. MetaMask账户切换的时候刷新页面
-
-很多情况下，MetaMask账户切换并不能带来页面刷新，这就造成了假死或者被人误以为BUG。所以，在可能的情况下，加一个切换账户，页面刷新是一个很好的主意。
-
-https://ethereum.stackexchange.com/questions/42768/how-can-i-detect-change-in-account-in-metamask/49008

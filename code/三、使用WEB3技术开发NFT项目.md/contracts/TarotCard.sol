@@ -5,17 +5,24 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract TarotCard is ERC721 {
 	
-	uint8[] public tarots;
+bool isNotMinted = true;
+	mapping(address => uint8[]) public addr2tokenIds;
 
 	constructor() ERC721("Tarot","TAROT") {
+
 	}
 
 	function mint() public {
-		require(tarots.length <= 0, "only can mint once");
+		require(isNotMinted, "should mint only once");
 		for (uint8 i = 0; i < 26; i++) {
-			tarots.push(i);
+			addr2tokenIds[msg.sender].push(i);
 			_mint(msg.sender, i);
 		}
+		isNotMinted = false;
+	}
+
+	function getOwnedTokenIds() public view returns(uint8[] memory) {
+		return addr2tokenIds[msg.sender];
 	}
 
 	function transfer(address to, uint8 tokenId) public {
