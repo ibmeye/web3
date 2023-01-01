@@ -25,13 +25,11 @@
 
 ### （二）创建普通的前端项目
 
-初始化我们使用VUE初始化工具来进行初始化，也可以直接拉取我的项目模板。
+构建方式在文章《一、WEB3集成开发环境构建》中已经解释了，可以直接使用那个项目中的代码作为基础模板来进行改造。
 
+https://github.com/ibmeye/web3
 
-
-
-
-
+下面在上述项目的基础上进一步开发，引入通用的NFT合约。
 
 ### （三）引入通用的NFT合约
 
@@ -45,20 +43,16 @@
 
 <img src="https://muzhi-picgo.oss-cn-beijing.aliyuncs.com/img/20221231115416.png"/>
 
-
-
-
-
 该项目已经将实现好的合约打包上传到`npm`仓库中，我们可以通过下面的命令来给项目引入依赖：
 
 ```shell
-$ yarn add @openzeppelin/contracts
+npm install @openzeppelin/contracts
 ```
 
 使用下面的命令创建卡罗牌合约`TarotCard.sol`
 
 ```shell
-$ truffle create contract TarotCard
+truffle create contract TarotCard
 ```
 
 合约创建好的样子如下：
@@ -130,7 +124,7 @@ contract TarotCard  is ERC721 {
 通过下面的命令来创建测试文件`tarot_card.js`：
 
 ```shell
-$ truffle create test TarotCard
+truffle create test TarotCard
 ```
 
 ![image-20211225143355319](https://muzhi-picgo.oss-cn-beijing.aliyuncs.com/img/a41e952108ed6067a4432b99274a1f35.png)
