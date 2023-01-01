@@ -1,3 +1,7 @@
+相关代码已经推送到我的github项目中，在code目录下的同名子目录中，结合代码来阅读文章，更加容易理解。
+
+https://github.com/ibmeye/web3
+
 ### （一）开发智能合约的集成开发环境
 
 不论哪种方式创建合约，最终的目的就是可以编译成EVM（以太坊虚拟机）能识别的程序。这个和Java也非常相似。不论通过通过什么语言编写`Kotlin`或者是`Java`，只要最后编译出来的`.class`文件可以在符合Java虚拟机规范，就可以在Java虚拟机上运行。
@@ -6,34 +10,32 @@
 
 为了将solidity转化为这种文件，我们有很多的方式来解决这个问题，第一个就是`remix`，第二个就是借助本地的`truffle`集成开发环境，类似Java中的javac。
 
-- remix是一个网页的集成开发环境，在调试的时候非常方便，但是在进行项目开发的时候比较麻烦，尤其是和本地钱包进行互动的时候
+- remix是一个网页的集成开发环境，在调试的时候非常方便，但是在进行项目开发的时候比较麻烦，尤其是和本地钱包进行互动的时候。
 - truffle是一个本地客户端的开发环境，虽然配置的时候比较麻烦，但是和前端项目结合起来进行开发的时候，很方便，借助于truffle项目框架，智能合约的依赖可以通过npm进行管理，非常方便。
 
 ### （二）使用Vscode开发Truffle项目
 
-**（1）**首先安装插件`Truffle for Vs Code`，如下：
+**(1)**首先安装插件`Truffle for Vs Code`，如下：
 
 ![image-20221118161332286](https://muzhi-picgo.oss-cn-beijing.aliyuncs.com/img/image-20221118161332286.png)
 
 安装完成插件以后，打开命令`CTRL+SHIFT+P`，输入`Truffle`，然后随便选择一个命令，就可以激活`Truffle`组件，并弹出下面这个窗口来提示需要安装的其他组件，将他们一一点击，全部安装即可。
 
-![image-20221118162339826](C:\Users\bpc\Desktop\me\自我修养\2.技术\assets\image-20221118162339826.png)
+其中，`node.js`版本要求是v17.0.0以下，可以直接在后面这个链接中下载：https://nodejs.org/dist/v16.9.1/
 
-> 图中`node.js`版本要求是v17.0.0以下，可以直接在后面这个链接中下载：https://nodejs.org/dist/v16.9.1/
-
-**（2）**安装插件的依赖项
+**(2)**安装插件的依赖项
 
 插件和相关的依赖安装完成后，重新启动`Vscode`，就可以在`Vscode`的开始页面看到下图中框出来的内容，点击这个内容就可以看到刚才安装的Truffle插件的一些主要功能。
 
 ![Welcome page](https://muzhi-picgo.oss-cn-beijing.aliyuncs.com/img/welcome-page.png)
 
-**（3）**查看可以可以执行的`truffle`指令
+**(3)**查看可以可以执行的`truffle`指令
 
 进入后的第一项就是查看`Truffle`可以执行的指令，这些指令用来编译，发布和执行智能合约。这些指令，从`Java`的视角来看，就是使用`java -jar`启动程序，使用`javac`编译程序。
 
 ![Walkthrough](https://muzhi-picgo.oss-cn-beijing.aliyuncs.com/img/walkthrough.png)
 
-**（4）**创建新的`Solidity`项目
+**(4)**创建新的`Solidity`项目
 
 使用`CTRL+SHIFT+P`打开VSCode的命令窗口，找到并点击`Truffle: New Solidity Project`，然后点击`Create sample project`，来创建一个例子项目，项目的目录如下图所示。
 
@@ -85,17 +87,17 @@
 
 下面介绍如何在`Edge`中安装`Metamusk`。
 
-**（1）**打开`Edge`浏览器，点击菜单按钮（右上角，三个点），然后点击扩展，然后再在扩展项中点击`Microsoft Edge`加载项。
+**(1)**打开`Edge`浏览器，点击菜单按钮（右上角，三个点），然后点击扩展，然后再在扩展项中点击`Microsoft Edge`加载项。
 
 <img src="https://muzhi-picgo.oss-cn-beijing.aliyuncs.com/img/image-20221120100321937.png" alt="image-20221120100321937"  />
 
-**（2）**搜索`Metamusk`，然后点击后面的获取。
+**(2)**搜索`Metamusk`，然后点击后面的获取。
 
 当获取完成后，会自动安装，在Edge浏览器的右上角会弹出相应的插件，并同时打开一个初始化钱包的网页。
 
 <img src="https://muzhi-picgo.oss-cn-beijing.aliyuncs.com/img/image-20221120100220254.png" alt="image-20221120100220254"  />
 
-**（3）**钱包初始化步骤
+**(3)**钱包初始化步骤
 
 下面这个页面点击开始使用。
 
@@ -129,7 +131,7 @@
 
 到目前为止，我们已经创建了自己的钱包，但是如果钱包在主网的话，除非别人给你转账，否则这个余额一定是0ETH。
 
-**（4）**将钱包连接到本地以太坊网络
+**(4)**将钱包连接到本地以太坊网络
 
 在前面的开发中，我们在`Vscode`中使用`Ganache`创建了以太坊的本地虚拟网络。我们可以在`Vscode`中，使用下面的方式启动本地虚拟网络，注意网络IP地址和端口是：`http://127.0.0.1:8543`。
 
@@ -226,8 +228,6 @@ vue create dapp-vue
 
 然后，一路点击确认执行下去，直到如下图所示，表示项目成功安装完成。
 
-
-
 ![image-20221120180538357](https://muzhi-picgo.oss-cn-beijing.aliyuncs.com/img/image-20221120180538357.png)
 
 使用上面的指令，可以直接启动`vue`的前端项目。此时，目录结构如下图所示，红框标出来的就是使用`vue-cli`创建的`vue`前端项目。
@@ -263,6 +263,10 @@ vue create dapp-vue
 ![image-20221120181802414](https://muzhi-picgo.oss-cn-beijing.aliyuncs.com/img/image-20221120181802414.png)
 
 使用下面的指令可以安装`web3.js`，然后使用下面的方式在项目中引入`web3.js`。
+
+安装指令：`npm install web3`。
+
+引入方式：
 
 ![image-20221120191349596](https://muzhi-picgo.oss-cn-beijing.aliyuncs.com/img/image-20221120191349596.png)
 
