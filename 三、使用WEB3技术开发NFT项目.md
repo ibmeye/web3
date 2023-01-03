@@ -50,7 +50,7 @@ https://github.com/ibmeye/web3
 该项目已经将实现好的合约打包上传到`npm`仓库中，我们可以通过下面的命令来给项目引入依赖：
 
 ```shell
-npm install @openzeppelin/contracts
+npm install @openzeppelin/contracts --save
 ```
 
 使用下面的命令创建卡罗牌合约`TarotCard.sol`
