@@ -16,9 +16,16 @@ IPFS完成安装以后的界面如下：
 
 <img src="https://muzhi-picgo.oss-cn-beijing.aliyuncs.com/img/20230104194801.png"/>
 
-文本信息`home.json`如下所示，ipfs链接为：https://ipfs.io/ipfs/QmSDWDCZS6j6nfCxcndjaARWSeBVboiFS9kNQbzut4qNxC?filename=home.json
+文本信息`home.json`如下所示，ipfs链接为：https://ipfs.io/ipfs/QmSDWDCZS6j6nfCxcndjaARWSeBVboiFS9kNQbzut4qNxC
 
-图片信息`home.jpg`如下所示，ipfs链接为：https://ipfs.io/ipfs/QmXcdEbSNAdRU2Hxnw4b1nArEKgBbDSkTszo9xJPSStigL?filename=home.jpg
+图片信息`home.jpg`如下所示，ipfs链接为：https://ipfs.io/ipfs/QmXcdEbSNAdRU2Hxnw4b1nArEKgBbDSkTszo9xJPSStigL
 
 > 由于网关ipfs.io需要翻墙才能访问，所以可能点击链接的时候，无法得到想要的内容。
 
+因此，我们可以在上传后使用本地网管来对应上述两个文件，除了前面的域名不一样，其他都相似。
+
+`home.json`的地址为：http://127.0.0.1:8080/ipfs/QmSDWDCZS6j6nfCxcndjaARWSeBVboiFS9kNQbzut4qNxC
+
+`home.jpg`的地址为：http://127.0.0.1:8080/ipfs/QmXcdEbSNAdRU2Hxnw4b1nArEKgBbDSkTszo9xJPSStigL
+
+在开发过程中，我们完全可以使用本地网关，但是在以后发布智能合约或者制作类似`openSea`的网站的时候，图片的地址必须使用公共网关。
