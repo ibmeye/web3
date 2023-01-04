@@ -52,15 +52,15 @@ $ npx hardhat run ./scripts/deploy.js --network localhost
 $ npm run start
 ```
 
-### （三）ERC721
+### （三）编写智能合约
 
 我们已经讨论了如何使用ERC20制作可替换令牌，但如果不是所有令牌都相同呢？这在房地产或收藏品等情况下会出现，其中一些物品因其有用性、稀有性等而价值高于其他物品。
 
 ERC721是表示不可替代代币所有权的标准，即每个代币都是唯一的。
 
-**(1)下面是房产NFT合约，`RealEstate`表示地产公司**
+**(1)房产NFT合约**
 
-具有两个功能：
+`RealEstate`表示地产公司，该合约具有两个功能：
 
 1. `mint`用于给消息发送者生成和进行绑定`tokenId`，传入的参数可以是ipfs上的NFT的地址，比如说可以是ipfs地址。
 2. `totalSupply`用来获得全部的`token`的数量。
@@ -98,9 +98,11 @@ contract RealEstate is ERC721URIStorage {
 }
 ```
 
-**(2)下面这个合约用来质押上面的房产NFT的token，用于销售**
+**(2)销售合约**
 
-其中`nftAddress`表示的是上面房产`NFT`的合约地址、`seller`表示的是`NFT`的售卖者，它被修饰为`payable`，意味着别人可以付款到这个地址，`inspector`和`lender`后面再说。
+1. 编写基础的合约
+
+`Escrow`表示托管，其中`nftAddress`表示的是上面房产`NFT`的合约地址、`seller`表示的是`NFT`的售卖者，它被修饰为`payable`，意味着别人可以付款到这个地址，`inspector`和`lender`后面再说。
 
 ```solidity
 //SPDX-License-Identifier: Unlicense
@@ -127,7 +129,9 @@ contract Escrow {
 
 ```
 
-下面可以在下面的文件中，编写测试脚本。
+2. 编写基础合约的测试脚本
+
+在下面的文件中，编写测试脚本。
 
 <img src="https://muzhi-picgo.oss-cn-beijing.aliyuncs.com/img/image-20230103200410502.png"/>
 
@@ -163,6 +167,8 @@ $ npx hardhat test
 
 <img src="https://muzhi-picgo.oss-cn-beijing.aliyuncs.com/img/20230103200701.png"/>
 
+3. 上传一个房产信息到ipfs，用于生成一个房产信息NFT
 
+具体如何安装IPFS客户端和上传文本信息到IPFS，请参考《五、上传图片或文本到IPFS，并使用前端项目展示》
 
 https://www.youtube.com/watch?v=C4blK6X-D_4&list=PLS5SEs8ZftgUNcUVXtn2KXiE1Ui9B5UrY&index=2&t=3177s
